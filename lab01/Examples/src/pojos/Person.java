@@ -3,6 +3,8 @@
 // If a class is in another package, in other to see it, you need to import it
 package pojos;
 
+import java.util.Date;
+
 // This is a typical Java Class. 
 public class Person {
 
@@ -12,18 +14,24 @@ public class Person {
 								// private attributes are only accesible inside the object
 	private String lastname;	// this is an attribute of the class String
 	private HealthProfile hProfile;	// this is an attribute of the class HealthProfile 
+	private String birthdate;
+	private Long personId;
 	
 	// constructors in java are used to create an object of the class 
 	// (a java program basically plays with objects of different classes)
 	// this constructor creates a Person object with a particular firstname, lastname and health profile
-	public Person(String fname, String lname, HealthProfile hp) {
+	public Person(Long id, String fname, String lname, String birthdate, HealthProfile hp) {
+		this.setPersonId(id);
 		this.setFirstname(fname);
 		this.setLastname(lname);
+		this.setBirthdate(birthdate);
 		this.hProfile=hp;
 	}
-	public Person(String fname, String lname) {
+	public Person(Long id, String fname, String lname, String birthdate) {
+		this.setPersonId(id);
 		this.setFirstname(fname);
 		this.setLastname(lname);
+		this.setBirthdate(birthdate);
 		this.hProfile=new HealthProfile();
 	}
 	public Person() {
@@ -51,5 +59,17 @@ public class Person {
 	}
 	public void sethProfile(HealthProfile hProfile) {
 		this.hProfile = hProfile;
+	}
+	public String getBirthdate() {
+		return birthdate;
+	}
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
+	public Long getPersonId() {
+		return personId;
+	}
+	public void setPersonId(Long personId) {
+		this.personId = personId;
 	}
 }
